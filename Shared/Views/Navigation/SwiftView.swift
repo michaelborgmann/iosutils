@@ -16,7 +16,7 @@ struct SwiftView: View {
         
         NavigationView {
             List {
-                ListSectionView(title: "Basics", items: sections.basics)
+                SectionView(title: "Basics", items: sections.basics)
             }.navigationBarTitle(title)
         }
     }

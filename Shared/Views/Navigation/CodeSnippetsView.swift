@@ -18,16 +18,16 @@ struct CodeSnippetsView: View {
             
             List {
                 
-                ListSectionView(title: "Architecture", items: sections.architecture)
-                ListSectionView(title: "AudioKit", items: sections.audiokit)
-                ListSectionView(title: "Combine", items: sections.combine)
-                ListSectionView(title: "Concurrency", items: sections.concurrency)
-                ListSectionView(title: "Data Structures & Algorithms", items: sections.dataStructAlgorithms)
-                ListSectionView(title: "Design Patterns", items: sections.designPatterns)
-                ListSectionView(title: "JSON", items: sections.json)
-                ListSectionView(title: "Networking", items: sections.networking)
-                ListSectionView(title: "Realm", items: sections.realm)
-                ListSectionView(title: "Rx", items: sections.rx)
+                SectionView(title: "Architecture", items: sections.architecture)
+                SectionView(title: "AudioKit", items: sections.audiokit)
+                SectionView(title: "Combine", items: sections.combine)
+                SectionView(title: "Concurrency", items: sections.concurrency)
+                SectionView(title: "Data Structures & Algorithms", items: sections.dataStructAlgorithms)
+                SectionView(title: "Design Patterns", items: sections.designPatterns)
+                SectionView(title: "JSON", items: sections.json)
+                SectionView(title: "Networking", items: sections.networking)
+                SectionView(title: "Realm", items: sections.realm)
+                SectionView(title: "Rx", items: sections.rx)
                 
             }.navigationBarTitle(title)
         }

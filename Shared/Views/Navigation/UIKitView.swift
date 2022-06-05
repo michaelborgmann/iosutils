@@ -18,7 +18,7 @@ struct UIKitView: View {
             
             List {
                 
-                ListSectionView(title: "All Components", items: sections)
+                SectionView(title: "All Components", items: sections)
                 
             }.navigationBarTitle(title)
         }

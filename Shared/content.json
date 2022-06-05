@@ -5,7 +5,13 @@
     },
     "uikit": [],
     "swiftui-views": {
-        "views": [],
+        "views": [
+            {
+                "name": "Tab View",
+                "icon": "TabbedView-32_Normal",
+                "documentation": "doc://com.apple.documentation/documentation/swiftui/tabview?language=swift"
+            }
+        ],
         "layout": [],
         "paint": [],
         "other": []

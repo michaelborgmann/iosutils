@@ -57,7 +57,7 @@ struct ContentView: View {
                         Label("SwiftUI Modifiers", image: "Modifiers-Line_Normal")
                     }
                 }
-                
+
                 if !content.codeSnippets.isEmpty {
                     CodeSnippetsView(title: "Snippets", sections: content.codeSnippets).tabItem {
                         Label("Snippets", image: "Snippets-Line_Normal")

@@ -43,6 +43,15 @@
 		2F30DC9F284C30A900A7E14E /* SwiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30DC9D284C30A900A7E14E /* SwiftModel.swift */; };
 		2F30DCA1284C316A00A7E14E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30DCA0284C316A00A7E14E /* DetailView.swift */; };
 		2F30DCA2284C316A00A7E14E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30DCA0284C316A00A7E14E /* DetailView.swift */; };
+		2F30DCA4284C404900A7E14E /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30DCA3284C404900A7E14E /* SectionView.swift */; };
+		2F30DCA5284C404900A7E14E /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30DCA3284C404900A7E14E /* SectionView.swift */; };
+		2F30DCA9284C469F00A7E14E /* TabViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30DCA8284C469F00A7E14E /* TabViewDemoView.swift */; };
+		2F30DCAA284C469F00A7E14E /* TabViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30DCA8284C469F00A7E14E /* TabViewDemoView.swift */; };
+		2F30DCB0284C549100A7E14E /* ExampleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30DCAF284C549100A7E14E /* ExampleTabView.swift */; };
+		2F30DCB1284C549200A7E14E /* ExampleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30DCAF284C549100A7E14E /* ExampleTabView.swift */; };
+		2FEBD07C284C59FE008B8C9D /* SourceCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEBD07B284C59FE008B8C9D /* SourceCodeView.swift */; };
+		2FEBD07D284C59FE008B8C9D /* SourceCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEBD07B284C59FE008B8C9D /* SourceCodeView.swift */; };
+		2FEBD080284C5CEA008B8C9D /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 2FEBD07F284C5CEA008B8C9D /* CodeEditor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +97,10 @@
 		2F30DC9A284C308200A7E14E /* SwiftUIViewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewsModel.swift; sourceTree = "<group>"; };
 		2F30DC9D284C30A900A7E14E /* SwiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftModel.swift; sourceTree = "<group>"; };
 		2F30DCA0284C316A00A7E14E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		2F30DCA3284C404900A7E14E /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		2F30DCA8284C469F00A7E14E /* TabViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemoView.swift; sourceTree = "<group>"; };
+		2F30DCAF284C549100A7E14E /* ExampleTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTabView.swift; sourceTree = "<group>"; };
+		2FEBD07B284C59FE008B8C9D /* SourceCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FEBD080284C5CEA008B8C9D /* CodeEditor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,12 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				2F30DC3E284BB70500A7E14E /* ContentView.swift */,
-				2F30DCA0284C316A00A7E14E /* DetailView.swift */,
-				2F30DC8C284C267600A7E14E /* SwiftView.swift */,
-				2F30DC89284C1FC200A7E14E /* UIKitView.swift */,
-				2F30DC7A284BD9BD00A7E14E /* SwiftUIViewsView.swift */,
-				2F30DC83284C119800A7E14E /* SwiftUIModifiersView.swift */,
-				2F30DC86284C171500A7E14E /* CodeSnippetsView.swift */,
+				2F30DCA6284C442700A7E14E /* Navigation */,
+				2F30DCAB284C46AD00A7E14E /* Examples */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +217,38 @@
 				2F30DC94284C301500A7E14E /* CodeSnippetsModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2F30DCA6284C442700A7E14E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				2F30DCA7284C445C00A7E14E /* Subviews */,
+				2F30DC8C284C267600A7E14E /* SwiftView.swift */,
+				2F30DC89284C1FC200A7E14E /* UIKitView.swift */,
+				2F30DC7A284BD9BD00A7E14E /* SwiftUIViewsView.swift */,
+				2F30DC83284C119800A7E14E /* SwiftUIModifiersView.swift */,
+				2F30DC86284C171500A7E14E /* CodeSnippetsView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		2F30DCA7284C445C00A7E14E /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				2F30DCA0284C316A00A7E14E /* DetailView.swift */,
+				2F30DCA3284C404900A7E14E /* SectionView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		2F30DCAB284C46AD00A7E14E /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				2F30DCA8284C469F00A7E14E /* TabViewDemoView.swift */,
+				2F30DCAF284C549100A7E14E /* ExampleTabView.swift */,
+				2FEBD07B284C59FE008B8C9D /* SourceCodeView.swift */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +267,9 @@
 			dependencies = (
 			);
 			name = "SwiftArmyKnife (iOS)";
+			packageProductDependencies = (
+				2FEBD07F284C5CEA008B8C9D /* CodeEditor */,
+			);
 			productName = "SwiftArmyKnife (iOS)";
 			productReference = 2F30DC44284BB70700A7E14E /* SwiftArmyKnife.app */;
 			productType = "com.apple.product-type.application";
@@ -317,6 +362,9 @@
 				Base,
 			);
 			mainGroup = 2F30DC37284BB70500A7E14E;
+			packageReferences = (
+				2FEBD07E284C5CEA008B8C9D /* XCRemoteSwiftPackageReference "CodeEditor" */,
+			);
 			productRefGroup = 2F30DC45284BB70700A7E14E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -371,6 +419,7 @@
 			files = (
 				2F30DC95284C301500A7E14E /* CodeSnippetsModel.swift in Sources */,
 				2F30DC67284BB70700A7E14E /* ContentView.swift in Sources */,
+				2F30DCA4284C404900A7E14E /* SectionView.swift in Sources */,
 				2F30DC98284C305200A7E14E /* SwiftUIModifiersModel.swift in Sources */,
 				2F30DCA1284C316A00A7E14E /* DetailView.swift in Sources */,
 				2F30DC87284C171500A7E14E /* CodeSnippetsView.swift in Sources */,
@@ -378,9 +427,12 @@
 				2F30DC7B284BD9BD00A7E14E /* SwiftUIViewsView.swift in Sources */,
 				2F30DC65284BB70700A7E14E /* SwiftArmyKnifeApp.swift in Sources */,
 				2F30DC92284C2FBE00A7E14E /* NavigationModel.swift in Sources */,
+				2F30DCB0284C549100A7E14E /* ExampleTabView.swift in Sources */,
 				2F30DC9B284C308200A7E14E /* SwiftUIViewsModel.swift in Sources */,
 				2F30DC9E284C30A900A7E14E /* SwiftModel.swift in Sources */,
 				2F30DC8A284C1FC200A7E14E /* UIKitView.swift in Sources */,
+				2FEBD07C284C59FE008B8C9D /* SourceCodeView.swift in Sources */,
+				2F30DCA9284C469F00A7E14E /* TabViewDemoView.swift in Sources */,
 				2F30DC81284BFF8200A7E14E /* ComponentModel.swift in Sources */,
 				2F30DC84284C119800A7E14E /* SwiftUIModifiersView.swift in Sources */,
 			);
@@ -392,6 +444,7 @@
 			files = (
 				2F30DC96284C301500A7E14E /* CodeSnippetsModel.swift in Sources */,
 				2F30DC68284BB70700A7E14E /* ContentView.swift in Sources */,
+				2F30DCA5284C404900A7E14E /* SectionView.swift in Sources */,
 				2F30DC99284C305200A7E14E /* SwiftUIModifiersModel.swift in Sources */,
 				2F30DCA2284C316A00A7E14E /* DetailView.swift in Sources */,
 				2F30DC88284C171500A7E14E /* CodeSnippetsView.swift in Sources */,
@@ -399,9 +452,12 @@
 				2F30DC7C284BD9BD00A7E14E /* SwiftUIViewsView.swift in Sources */,
 				2F30DC66284BB70700A7E14E /* SwiftArmyKnifeApp.swift in Sources */,
 				2F30DC93284C2FBE00A7E14E /* NavigationModel.swift in Sources */,
+				2F30DCB1284C549200A7E14E /* ExampleTabView.swift in Sources */,
 				2F30DC9C284C308200A7E14E /* SwiftUIViewsModel.swift in Sources */,
 				2F30DC9F284C30A900A7E14E /* SwiftModel.swift in Sources */,
 				2F30DC8B284C1FC200A7E14E /* UIKitView.swift in Sources */,
+				2FEBD07D284C59FE008B8C9D /* SourceCodeView.swift in Sources */,
+				2F30DCAA284C469F00A7E14E /* TabViewDemoView.swift in Sources */,
 				2F30DC82284BFF8200A7E14E /* ComponentModel.swift in Sources */,
 				2F30DC85284C119800A7E14E /* SwiftUIModifiersView.swift in Sources */,
 			);
@@ -795,6 +851,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2FEBD07E284C5CEA008B8C9D /* XCRemoteSwiftPackageReference "CodeEditor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZeeZide/CodeEditor.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2FEBD07F284C5CEA008B8C9D /* CodeEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FEBD07E284C5CEA008B8C9D /* XCRemoteSwiftPackageReference "CodeEditor" */;
+			productName = CodeEditor;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2F30DC38284BB70500A7E14E /* Project object */;
 }

@@ -19,22 +19,22 @@ struct SwiftUIModifiersView: View {
             List {
 
                 Group {
-                    ListSectionView(title: "Controls", items: sections.controls)
-                    ListSectionView(title: "Effects", items: sections.effects)
-                    ListSectionView(title: "Layout", items: sections.layout)
-                    ListSectionView(title: "Text", items: sections.text)
-                    ListSectionView(title: "Image", items: sections.image)
-                    ListSectionView(title: "List", items: sections.list)
-                    ListSectionView(title: "Navigation Bar", items: sections.navigationBar)
-                    ListSectionView(title: "Style", items: sections.style)
-                    ListSectionView(title: "Accessibility", items: sections.accessibility)
-                    ListSectionView(title: "Events", items: sections.events)
+                    SectionView(title: "Controls", items: sections.controls)
+                    SectionView(title: "Effects", items: sections.effects)
+                    SectionView(title: "Layout", items: sections.layout)
+                    SectionView(title: "Text", items: sections.text)
+                    SectionView(title: "Image", items: sections.image)
+                    SectionView(title: "List", items: sections.list)
+                    SectionView(title: "Navigation Bar", items: sections.navigationBar)
+                    SectionView(title: "Style", items: sections.style)
+                    SectionView(title: "Accessibility", items: sections.accessibility)
+                    SectionView(title: "Events", items: sections.events)
                 }
                 
                 Group {
-                    ListSectionView(title: "Gestures", items: sections.gestures)
-                    ListSectionView(title: "Shapes", items: sections.shapes)
-                    ListSectionView(title: "Other", items: sections.other)
+                    SectionView(title: "Gestures", items: sections.gestures)
+                    SectionView(title: "Shapes", items: sections.shapes)
+                    SectionView(title: "Other", items: sections.other)
                 }
                 
             }.navigationBarTitle(title)

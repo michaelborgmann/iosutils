@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct DetailView: View {
-    let item: String
+    
+    let title: String
     
     var body: some View {
-        Text(item)
-            .navigationBarTitle(Text(item), displayMode: .inline)
+        Text("No example found")
+            .navigationBarTitle(Text(title), displayMode: .inline)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(item: "Title").previewLayout(.sizeThatFits)
+        DetailView(title: "Button").previewLayout(.sizeThatFits)
     }
 }
