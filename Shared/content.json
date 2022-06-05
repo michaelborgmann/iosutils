@@ -1,0 +1,40 @@
+{
+    "version": "0.0.1",
+    "swift": {
+        "basics": []
+    },
+    "uikit": [],
+    "swiftui-views": {
+        "views": [],
+        "layout": [],
+        "paint": [],
+        "other": []
+    },
+    "swiftui-modifiers": {
+        "controls": [],
+        "effects": [],
+        "layout": [],
+        "text": [],
+        "image": [],
+        "list": [],
+        "navigationBar": [],
+        "style": [],
+        "accessibility": [],
+        "events": [],
+        "gestures": [],
+        "shapes": [],
+        "other": []
+    },
+    "code-snippets": {
+        "architecture": [],
+        "audiokit": [],
+        "combine": [],
+        "concurrency": [],
+        "data-struct-algorithms": [],
+        "design-patterns": [],
+        "json": [],
+        "networking": [],
+        "realm": [],
+        "rx": []
+    }
+}
