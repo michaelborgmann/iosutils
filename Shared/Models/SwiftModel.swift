@@ -16,4 +16,9 @@ struct SwiftModel: Identifiable, Decodable {
     enum CodingKeys: CodingKey {
         case basics
     }
+    
+    var isEmpty: Bool {
+        guard basics.isEmpty else { return false }
+        return true
+    }
 }

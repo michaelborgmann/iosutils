@@ -26,4 +26,12 @@ struct SwiftUIViewsModel: Identifiable, Decodable {
     var components: [[ComponentModel]] {
         [views, layout, paint, other]
     }
+    
+    var isEmpty: Bool {
+        guard views.isEmpty, layout.isEmpty, paint.isEmpty, other.isEmpty else {
+            return false
+        }
+        
+        return true
+    }
 }

@@ -34,4 +34,15 @@ struct CodeSnippetsModel: Identifiable, Decodable {
         case realm
         case rx
     }
+    
+    var isEmpty: Bool {
+        
+        guard architecture.isEmpty, audiokit.isEmpty, combine.isEmpty, concurrency.isEmpty, dataStructAlgorithms.isEmpty,
+              designPatterns.isEmpty, json.isEmpty, networking.isEmpty, realm.isEmpty, rx.isEmpty
+        else {
+            return false
+        }
+        
+        return true
+    }
 }

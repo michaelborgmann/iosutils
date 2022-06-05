@@ -43,7 +43,7 @@ struct CodeSnippetsView_Previews: PreviewProvider {
         let content = CodeSnippetsModel(
             id: UUID(),
             architecture: [component],
-            audiokit: [component],
+            audiokit: [],
             combine: [component],
             concurrency: [component],
             dataStructAlgorithms: [component],

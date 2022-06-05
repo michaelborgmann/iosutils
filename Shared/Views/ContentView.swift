@@ -9,30 +9,60 @@ import SwiftUI
 
 struct ContentView: View {
     
+    fileprivate func isContentEmpty(_ content: NavigationModel) -> Bool {
+        
+        guard
+            content.swift.isEmpty,
+            content.uikit.isEmpty,
+            content.views.isEmpty,
+            content.modifiers.isEmpty,
+            content.codeSnippets.isEmpty
+        else {
+            return false
+        }
+        
+        return true
+    }
+    
     var body: some View {
         
         let content: NavigationModel = load("content.json")
         
-        TabView {
-            
-            SwiftView(title: "Swift", sections: content.swift).tabItem {
-                Label("Swift", image: "Swift_Normal")
-            }
-            
-            UIKitView(title: "UIKit", sections: content.uikit).tabItem {
-                Label("UIKit", systemImage: "chevron.left.forwardslash.chevron.right")
-            }
-            
-            SwiftUIViewsView(title: "Views", sections: content.views).tabItem {
-                Label("SwiftUI Views", image: "SwiftUI_Objects-Line_Normal")
-            }
-            
-            SwiftUIModifiersView(title: "Modifiers", sections: content.modifiers).tabItem {
-                Label("SwiftUI Modifiers", image: "Modifiers-Line_Normal")
-            }
-
-            CodeSnippetsView(title: "Snippets", sections: content.codeSnippets).tabItem {
-                Label("Snippets", image: "Snippets-Line_Normal")
+        if isContentEmpty(content) {
+            Text("No examples available")
+        } else {
+        
+            TabView {
+                
+                if !content.swift.basics.isEmpty {
+                    SwiftView(title: "Swift", sections: content.swift).tabItem {
+                        Label("Swift", image: "Swift_Normal")
+                    }
+                }
+                
+                if !content.uikit.isEmpty {
+                    UIKitView(title: "UIKit", sections: content.uikit).tabItem {
+                        Label("UIKit", systemImage: "chevron.left.forwardslash.chevron.right")
+                    }
+                }
+                
+                if !content.views.isEmpty {
+                    SwiftUIViewsView(title: "Views", sections: content.views).tabItem {
+                        Label("SwiftUI Views", image: "SwiftUI_Objects-Line_Normal")
+                    }
+                }
+                
+                if !content.modifiers.isEmpty {
+                    SwiftUIModifiersView(title: "Modifiers", sections: content.modifiers).tabItem {
+                        Label("SwiftUI Modifiers", image: "Modifiers-Line_Normal")
+                    }
+                }
+                
+                if !content.codeSnippets.isEmpty {
+                    CodeSnippetsView(title: "Snippets", sections: content.codeSnippets).tabItem {
+                        Label("Snippets", image: "Snippets-Line_Normal")
+                    }
+                }
             }
         }
     }

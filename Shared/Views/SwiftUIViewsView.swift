@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct ListSection {
-    
-    let id = UUID()
-    
-    let title: String
-    let items: [String]
-}
-
 struct ListSectionView: View {
     
     let title: String
@@ -22,10 +14,15 @@ struct ListSectionView: View {
     
     var body: some View {
         
-        Section(header: Text(title)) {
-            ForEach(items, id: \.id) { item in
-                NavigationLink(destination: DetailView(item: item.name)) {
-                    Text(item.name)
+        if items.isEmpty {
+            EmptyView()
+        } else {
+        
+            Section(header: Text(title)) {
+                ForEach(items, id: \.id) { item in
+                    NavigationLink(destination: DetailView(item: item.name)) {
+                        Text(item.name)
+                    }
                 }
             }
         }

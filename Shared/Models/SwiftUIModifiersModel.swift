@@ -40,4 +40,15 @@ struct SwiftUIModifiersModel: Identifiable, Decodable {
         case shapes
         case other
     }
+    
+    var isEmpty: Bool {
+        
+        guard controls.isEmpty, effects.isEmpty, layout.isEmpty, text.isEmpty, image.isEmpty, list.isEmpty, navigationBar.isEmpty,
+              style.isEmpty, accessibility.isEmpty, events.isEmpty, gestures.isEmpty, shapes.isEmpty, other.isEmpty
+        else {
+            return false
+        }
+        
+        return true
+    }
 }
