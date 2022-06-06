@@ -6,72 +6,42 @@
 //
 
 import SwiftUI
+import CodeEditor
 
-enum SpelledOutOrdinal: String {
+struct ContainerView: View {
     
-    case first
-    case second
-    case third
-    case fifth
-    case eighth
-    case ninth
-    case twelfth
-    case twentieth
-    case thirtieth
-    case fortieth
-    case fiftieth
-    case sixtieth
-    case seventieth
-    case eightieth
-    case ninetieth
+    let spelledOutOrdinal: String?
+    @Binding var tabBarHeight: CGFloat
+    @Binding var tabBarColor: Color
     
-    static func spellOutOrdinal(_ number: Int) -> String? {
+    var body: some View {
         
-        guard var spelled = SpelledOutOrdinal.spellNumber(number) else {
-            return nil
-        }
-        
-        switch number {
-        case 1: return "first"
-        case 2: return "second"
-        case 3: return "third"
-        case 5: return "fifth"
-        case 8: return "eighth"
-        case 9: return "ninth"
-        case 12: return "twelfth"
-        case 20: return "twentieth"
-        case 30: return "thirtieth"
-        case 40: return "fortieth"
-        case 50: return "fiftieth"
-        case 60: return "sixtieth"
-        case 70: return "seventieth"
-        case 80: return "eightieth"
-        case 90: return "ninetieth"
-        default:
+        VStack {
             
-            if spelled.contains("one") {
-                return spelled.replacingOccurrences(of: "one", with: SpelledOutOrdinal.first.rawValue)
-            } else if spelled.contains("two") {
-                return spelled.replacingOccurrences(of: "two", with: SpelledOutOrdinal.second.rawValue)
-            } else if spelled.contains("three") {
-                return spelled.replacingOccurrences(of: "three", with: SpelledOutOrdinal.third.rawValue)
-            } else if spelled.contains("five") {
-                return spelled.replacingOccurrences(of: "five", with: SpelledOutOrdinal.fifth.rawValue)
-            } else if spelled.contains("eight") {
-                return spelled.replacingOccurrences(of: "eight", with: SpelledOutOrdinal.eighth.rawValue)
-            } else if spelled.contains("nine") {
-                return spelled.replacingOccurrences(of: "nine", with: SpelledOutOrdinal.ninth.rawValue)
-            }
+            let number = spelledOutOrdinal ?? "#"
             
-            return spelled + "th"
+            Text("The \(number.capitalized) Tab")
+
+            Rectangle()
+                .fill(Color.clear)
+                .frame(height: tabBarHeight)
+                .background(tabBarColor)
         }
     }
+}
+
+struct BackgroundColor: View {
     
-    static func spellNumber(_ number: Int) -> String? {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .spellOut
-        let spelledOut = formatter.string(from: number as NSNumber)
-        return spelledOut
+    @Binding var isSafeAreaIgnored: Bool
+    @Binding var backgroundColor: Color
+    
+    var body: some View {
+        
+        if isSafeAreaIgnored {
+            backgroundColor.ignoresSafeArea()
+        } else {
+            backgroundColor
+        }
     }
 }
 
@@ -88,6 +58,17 @@ struct ExampleTabView: View {
                 return .automatic
             case .never:
                 return .never
+            }
+        }
+        
+        var string: String {
+            switch self {
+            case .always:
+                return ".always"
+            case .automatic:
+                return ".automatic"
+            case .never:
+                return ".never"
             }
         }
     }
@@ -108,6 +89,19 @@ struct ExampleTabView: View {
                 return .interactive
             }
         }
+        
+        var string: String {
+            switch self {
+            case .always:
+                return ".always"
+            case .automatic:
+                return ".automatic"
+            case .never:
+                return ".never"
+            case .interactive:
+                return ".interactive"
+            }
+        }
     }
     
     @Binding var isPaging: Bool
@@ -116,78 +110,69 @@ struct ExampleTabView: View {
     @Binding var isTextShown: Bool
     @Binding var isImageShown: Bool
     @Binding var numberOfPages: Int
-    @Binding var numberOfBadges: Int
+    @Binding var numberOfBadges: Double
+    @Binding var accentColor: Color
+    @Binding var backgroundColor: Color
+    @Binding var isSafeAreaIgnored: Bool
+    @Binding var tabBarHeight: CGFloat
+    @Binding var tabBarColor: Color
     
     var body: some View {
         
         TabView {
-            
+
             ForEach(1...numberOfPages, id: \.self) { index in
                 
-                let number = SpelledOutOrdinal.spellOutOrdinal(index)
+                let number = index.spellOutOrdinal
                 
-                Text("The \(number!.capitalized) Tab")
-                    .if(index == 1) { view in
-                        view.badge(numberOfBadges)
+                ZStack {
+                    
+                    BackgroundColor(isSafeAreaIgnored: $isSafeAreaIgnored, backgroundColor: $backgroundColor)
+                    
+                    ContainerView(spelledOutOrdinal: number, tabBarHeight: $tabBarHeight, tabBarColor: $tabBarColor)
+                }
+                .if(index == 1) { view in
+                    view.badge(Int(numberOfBadges))
+                }
+                .tabItem {
+                    if isImageShown {
+                        Image(systemName: "\(index).square.fill")
+                            .renderingMode(.template)
                     }
-                    .tabItem {
-                        if isImageShown {
-                            Image(systemName: "\(index).square.fill")
-                        }
-                        
-                        if isTextShown {
-                            Text(number!.capitalized)
-                        }
+
+                    if isTextShown {
+                        Text(number!.capitalized)
                     }
-                
+                }
             }
-            
-        }.if(isPaging) { view in
+        }
+        .accentColor(accentColor)
+        .if(isPaging) { view in
             view.tabViewStyle(.page(indexDisplayMode: IndexDisplayMode(rawValue: indexDisplayMode)!.value))
                 .indexViewStyle(.page(backgroundDisplayMode:
             BackgroundDisplayMode(rawValue: backgroundDisplayMode)!.value))
-        }.if(!isPaging) { view in
-            view.indexViewStyle(.page(backgroundDisplayMode:
-                                            BackgroundDisplayMode(rawValue: backgroundDisplayMode)!.value))
         }
-    }
-}
-
-extension ExampleTabView {
-    
-    struct Sources {
-    
-        static let example1 = """
-TabView {
-    Text("The First Tab")
-        .badge(10)
-        .tabItem {
-            Image(systemName: "1.square.fill")
-            Text("First")
-        }
-    Text("Another Tab")
-        .tabItem {
-            Image(systemName: "2.square.fill")
-            Text("Second")
-        }
-    Text("The Last Tab")
-        .tabItem {
-            Image(systemName: "3.square.fill")
-            Text("Third")
-        }
-}
-"""
-        static let example2 = example1 +
-"""
-.tabViewStyle(.page)
-.indexViewStyle(.page(backgroundDisplayMode: .always))
-"""
     }
 }
 
 struct ExampleTabView_Previews: PreviewProvider {
     static var previews: some View {
-        ExampleTabView(isPaging: .constant(false), indexDisplayMode: .constant(0), backgroundDisplayMode: .constant(0), isTextShown: .constant(true), isImageShown: .constant(true), numberOfPages: .constant(3), numberOfBadges: .constant(10))
+        
+        ExampleTabView(
+            isPaging: .constant(true),
+            indexDisplayMode: .constant(ExampleTabView.IndexDisplayMode.always.rawValue),
+            backgroundDisplayMode: .constant(ExampleTabView.BackgroundDisplayMode.always.rawValue),
+            isTextShown: .constant(true),
+            isImageShown: .constant(true),
+            numberOfPages: .constant(1),
+            numberOfBadges: .constant(5),
+            accentColor: .constant(.red),
+            backgroundColor: .constant(.green.opacity(0.3)),
+            isSafeAreaIgnored: .constant(true),
+            tabBarHeight: .constant(10),
+            tabBarColor: .constant(.clear.opacity(0.3))
+        )
+        .previewInterfaceOrientation(.landscapeLeft)
     }
 }
 
@@ -203,5 +188,35 @@ extension View {
         } else {
             self
         }
+    }
+}
+
+extension String {
+    
+    var lines: [String] {
+        components(separatedBy: "\n")
+    }
+    
+    var indent: String {
+        lines.map { "    \($0)" }.joined(separator: "\n")
+    }
+    
+//    var undent: String {}
+}
+
+extension Color {
+    
+    var rgba: (red: Double, green: Double, blue: Double, alpha: Double) {
+        
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        let uiColor = UIColor(self)
+        
+        uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        return (red, green, blue, alpha)
     }
 }

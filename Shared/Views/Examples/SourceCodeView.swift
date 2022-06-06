@@ -10,11 +10,7 @@ import CodeEditor
 
 struct SourceCodeView: View {
     
-    @State var source: String
-    
-    init(source: String) {
-        _source = State(initialValue: source)
-    }
+    @Binding var source: String
     
     var body: some View {
         CodeEditor(source: $source, language: .swift, theme: .ocean)
@@ -23,6 +19,6 @@ struct SourceCodeView: View {
 
 struct SourceCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        SourceCodeView(source: "let a = 42")
+        SourceCodeView(source: .constant("let a = 42"))
     }
 }
